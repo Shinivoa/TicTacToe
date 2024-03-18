@@ -1,18 +1,27 @@
-package Java.TicTacToe;
+package TicTacToe;
 
 import Tools.IOTools;
 
 public class TicTacToe {
     public static void main(String[] args) {
+
+        int[][] spielfeld = new int[3][3];
+        init(spielfeld, '~');
+        ausgebenSpielfeld(spielfeld);
+
+        // ausgeben();
+        // eingabe();
+        // gewonnen();
+
         int spalte = 0, zeile = 0;
         boolean gewonnen = false;
-        char[][] spielfeld = new char[3][3];
+        // char[][] spielfeld = new char[3][3];
         // Spielfeld initialisieren
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                spielfeld[i][j] = '~';
-            }
-        }
+        // for (int i = 0; i < 3; i++) {
+        // for (int j = 0; j < 3; j++) {
+        // spielfeld[i][j] = '~';
+        // }
+        // }
         for (int zuege = 1; zuege <= 9; zuege++) {
             // Eingabe Spieler O
             do {
@@ -78,6 +87,25 @@ public class TicTacToe {
         } // end for(zuege...
         if (!gewonnen) {
             System.out.println("Spiel beendet! Es gibt keinen Gewinner");
+        }
+    }
+
+    private static void init(int[][] spielfeld, int spalten) {
+        for (int i = 1; i <= spalten; i++) {
+            System.out.print("*");
+        }
+        System.out.println();
+    }
+
+    private static void ausgebenSpielfeld(int[][] spielfeld) {
+        int y = spielfeld.length;
+        int x = spielfeld['~'].length;
+        for (int i = 0; i < spielfeld.length; i++) {
+            for (int b = 0; b < spielfeld[i].length; b++) {
+                System.out.print("~");
+            }
+
+            System.out.println();
         }
     }
 
